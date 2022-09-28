@@ -1,5 +1,5 @@
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
-![Platform](https://img.shields.io/badge/platform-osx-lightgrey)
+[![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
 # To-Do List App
 
