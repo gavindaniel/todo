@@ -28,6 +28,11 @@ struct TodoFormView: View {
             .navigationTitle("Add To-Do List Item")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(isUpdating ? "Done" : "Save") {
                         if isUpdating {

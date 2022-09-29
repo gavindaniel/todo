@@ -16,12 +16,11 @@ class Todo: Object, ObjectKeyIdentifiable {
     @Persisted var desc = ""
     @Persisted var completed = false
     
-    func getDateString(dateIn: Date) -> String {
+    func getDateString(date: Date) -> String {
         let formatter = DateFormatter()
-//        formatter.dateStyle = .short
-//        let dateOut = formatter.string(from: dateIn)
+        formatter.dateStyle = .short
         formatter.timeStyle = .short
-        let timeOut = formatter.string(from: dateIn)
-        return ("\(timeOut)")
+        let string = formatter.string(from: date)
+        return string
     }
 }

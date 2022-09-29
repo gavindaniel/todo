@@ -18,7 +18,12 @@ struct CompletedView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(completedTodos) { todo in
+                if completedTodos.isEmpty {
+                  Text("Complete some to-dos off the list")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                }
+                ForEach(completedTodos.sorted(byKeyPath: "dateCompleted", ascending: false)) { todo in
                   TodoRow(todo: todo)
                 }
             }
