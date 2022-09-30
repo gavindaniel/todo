@@ -17,12 +17,12 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            TodoListView()
+            TodoList()
                 .tabItem {
                     Label("To-Do", systemImage: "list.bullet")
                 }
                 .tag(Tab.home)
-            CompletedView()
+            CompletedList()
                 .tabItem {
                    Label("Completed", systemImage: "checklist")
                 }

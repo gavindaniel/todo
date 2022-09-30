@@ -1,5 +1,5 @@
 //
-//  TodoListView.swift
+//  TodoList.swift
 //  todo
 //
 //  Created by Gavin Daniel on 9/27/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct TodoListView: View {
+struct TodoList: View {
     @State private var todoFormIsPresented = false
     @Environment(\.realm) var realm
     
@@ -54,15 +54,15 @@ struct TodoListView: View {
                 }
             }
             .sheet(isPresented: $todoFormIsPresented) {
-                TodoFormView(todo: Todo())
+                TodoForm(todo: Todo())
             }
             .padding()
         }
     }
 }
 
-struct TodoListView_Previews: PreviewProvider {
+struct TodoList_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView()
+        TodoList()
     }
 }

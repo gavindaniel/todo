@@ -1,5 +1,5 @@
 //
-//  TodoFormView.swift
+//  TodoForm.swift
 //  todo
 //
 //  Created by Gavin Daniel on 9/27/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct TodoFormView: View {
+struct TodoForm: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.realm) var realm
 
@@ -40,7 +40,7 @@ struct TodoFormView: View {
 }
 
 // MARK: - Actions
-extension TodoFormView {
+extension TodoForm {
     func save() {
         try? realm.write {
             realm.add(todo)
@@ -49,8 +49,8 @@ extension TodoFormView {
     }
 }
 
-struct TodoFormView_Previews: PreviewProvider {
+struct TodoForm_Previews: PreviewProvider {
     static var previews: some View {
-        TodoFormView(todo: Todo())
+        TodoForm(todo: Todo())
     }
 }

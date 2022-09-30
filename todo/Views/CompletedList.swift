@@ -1,5 +1,5 @@
 //
-//  CompletedView.swift
+//  CompletedList.swift
 //  todo
 //
 //  Created by Gavin Daniel on 9/27/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct CompletedView: View {
+struct CompletedList: View {
     
     @ObservedResults(
         Todo.self,
@@ -33,8 +33,8 @@ struct CompletedView: View {
     }
 }
 
-struct CompletedView_Previews: PreviewProvider {
+struct CompletedList_Previews: PreviewProvider {
     static var previews: some View {
-        CompletedView()
+        CompletedList()
     }
 }
