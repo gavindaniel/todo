@@ -42,19 +42,6 @@ struct TodoListView: View {
                                 .tint(.green)
                             }
                     }
-                    
-//                    TodoRow(todo: todo)
-//                        .swipeActions {
-//                            Button("Complete") {
-//                                if let item = todo.thaw() {
-//                                    try? item.realm?.write {
-//                                        item.completed.toggle()
-//                                        item.dateCompleted = Date()
-//                                    }
-//                                }
-//                            }
-//                            .tint(.green)
-//                        }
                 }
             }
             .listStyle(.inset)

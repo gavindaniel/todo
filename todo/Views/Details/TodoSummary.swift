@@ -15,8 +15,6 @@ struct TodoSummary: View {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     Text(todo.desc)
-                    //                    .bold()
-                    //                    .font(.title)
                 }
                 Spacer()
             }

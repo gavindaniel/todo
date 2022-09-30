@@ -13,13 +13,6 @@ struct TodoRow: View {
     @ObservedRealmObject var todo: Todo
     
     var body: some View {
-//        VStack(alignment: .leading, spacing: 10) {
-//            Text(todo.desc)
-//                .lineLimit(3)
-//            if todo.completed { Text("Completed: \(todo.getDateString(date: todo.dateCompleted))") }
-//            else { Text(todo.getDateString(date: todo.dateUpdated)) }
-//        }
-        
         HStack {
             VStack(alignment: .leading) {
                 Text(todo.desc)
@@ -30,22 +23,9 @@ struct TodoRow: View {
             }
             Spacer()
         }
-//        .contentShape(Rectangle())
-//        .onTapGesture {
-//            todoEditIsPresented.toggle()
-//        }
-//        .sheet(isPresented: $todoEditIsPresented) {
-//          TodoHost(todo: todo)
-//        }
     }
 }
 
-// MARK: - Actions
-extension TodoRow {
-  func openUpdateTodo() {
-      todoEditIsPresented.toggle()
-  }
-}
 
 struct TodoRow_Previews: PreviewProvider {
     static var previews: some View {
