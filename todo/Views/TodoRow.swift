@@ -9,25 +9,33 @@ import SwiftUI
 import RealmSwift
 
 struct TodoRow: View {
-    @State private var todoFormIsPresented = false
+    @State private var todoEditIsPresented = false
     @ObservedRealmObject var todo: Todo
     
     var body: some View {
-//        Button(action: openUpdateTodo) {
-//            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(todo.desc)
-                        .lineLimit(3)
-                    if todo.completed { Text(todo.getDateString(date: todo.dateCompleted)) }
-                    else { Text(todo.getDateString(date: todo.dateUpdated)) }
-                }
-//                Spacer()
-//            }
+//        VStack(alignment: .leading, spacing: 10) {
+//            Text(todo.desc)
+//                .lineLimit(3)
+//            if todo.completed { Text("Completed: \(todo.getDateString(date: todo.dateCompleted))") }
+//            else { Text(todo.getDateString(date: todo.dateUpdated)) }
 //        }
-//        .frame(maxWidth: .infinity)
-//        .buttonStyle(.plain)
-//        .sheet(isPresented: $todoFormIsPresented) {
-//          TodoFormView(todo: todo)
+        
+        HStack {
+            VStack(alignment: .leading) {
+                Text(todo.desc)
+                    .lineLimit(3)
+                    .padding(.bottom, 5)
+                if todo.completed { Text("Completed: \(todo.getDateString(date: todo.dateCompleted))") }
+                else { Text(todo.getDateString(date: todo.dateUpdated)) }
+            }
+            Spacer()
+        }
+//        .contentShape(Rectangle())
+//        .onTapGesture {
+//            todoEditIsPresented.toggle()
+//        }
+//        .sheet(isPresented: $todoEditIsPresented) {
+//          TodoHost(todo: todo)
 //        }
     }
 }
@@ -35,7 +43,7 @@ struct TodoRow: View {
 // MARK: - Actions
 extension TodoRow {
   func openUpdateTodo() {
-      todoFormIsPresented.toggle()
+      todoEditIsPresented.toggle()
   }
 }
 

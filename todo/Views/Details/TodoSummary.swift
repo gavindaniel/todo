@@ -12,10 +12,13 @@ struct TodoSummary: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(todo.desc)
-                    .bold()
-                    .font(.title)
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(todo.desc)
+                    //                    .bold()
+                    //                    .font(.title)
+                }
+                Spacer()
             }
         }
     }

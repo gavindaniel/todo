@@ -42,6 +42,7 @@ struct TodoListView: View {
                                 .tint(.green)
                             }
                     }
+                    
 //                    TodoRow(todo: todo)
 //                        .swipeActions {
 //                            Button("Complete") {

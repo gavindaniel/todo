@@ -13,49 +13,33 @@ struct TodoHost: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.realm) var realm
     
-    @State private var draftTodo = Todo()
-    
     @ObservedRealmObject var todo: Todo
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            HStack {
-                if editMode?.wrappedValue == .active {
-                    Button("Cancel", role: .cancel) {
-                        draftTodo = todo
-                        editMode?.animation().wrappedValue = .inactive
-                    }
-                }
-                Spacer()
-                EditButton()
-            }
-            
+        VStack(alignment: .leading) {
             if editMode?.wrappedValue == .inactive {
                 TodoSummary(todo: todo)
             } else {
-                TodoEditor(todo: $draftTodo)
+                TodoEditor(todo: todo)
                     .onAppear {
-                        draftTodo = todo
+                        if let item = todo.thaw() {
+                            try? item.realm?.write {
+                                item.dateUpdated = Date()
+                            }
+                        }
                     }
                     .onDisappear {
-//                        todo = draftTodo
-                        save()
+                        dismiss()
                     }
             }
         }
         .padding()
+        .toolbar {
+            EditButton()
+        }
     }
 }
 
-// MARK: - Actions
-extension TodoHost {
-  func save() {
-      try? realm.write {
-        realm.add(draftTodo)
-      }
-      dismiss()
-  }
-}
 
 struct TodoHost_Previews: PreviewProvider {
     static var previews: some View {
