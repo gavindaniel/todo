@@ -14,17 +14,12 @@ struct TodoFormView: View {
 
     @ObservedRealmObject var todo: Todo
     
-    var isUpdating: Bool {
-        todo.realm != nil
-    }
-    
     var body: some View {
         NavigationView {
-            Form {
-                Section("Notes") {
-                    TextEditor(text: $todo.desc)
-                }
+            VStack {
+                TextEditor(text: $todo.desc)
             }
+            .padding()
             .navigationTitle("Add To-Do List Item")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -34,12 +29,8 @@ struct TodoFormView: View {
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(isUpdating ? "Done" : "Save") {
-                        if isUpdating {
-                            dismiss()
-                        } else {
-                            save()
-                        }
+                    Button("Save") {
+                        save()
                     }
                     .disabled(todo.desc.isEmpty)
                 }
@@ -50,12 +41,12 @@ struct TodoFormView: View {
 
 // MARK: - Actions
 extension TodoFormView {
-  func save() {
-      try? realm.write {
-        realm.add(todo)
-      }
-      dismiss()
-  }
+    func save() {
+        try? realm.write {
+            realm.add(todo)
+        }
+        dismiss()
+    }
 }
 
 struct TodoFormView_Previews: PreviewProvider {

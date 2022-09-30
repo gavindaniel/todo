@@ -27,7 +27,7 @@ struct TodoListView: View {
                 }
                 ForEach(todos.sorted(byKeyPath: "dateUpdated", ascending: false)) { todo in
                     NavigationLink {
-                        TodoHost(todo: todo)
+                        TodoDetail(todo: todo)
                     } label: {
                         TodoRow(todo: todo)
                             .swipeActions {
@@ -54,7 +54,7 @@ struct TodoListView: View {
                 }
             }
             .sheet(isPresented: $todoFormIsPresented) {
-              TodoFormView(todo: Todo())
+                TodoFormView(todo: Todo())
             }
             .padding()
         }
