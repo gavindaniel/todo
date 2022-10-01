@@ -1,4 +1,4 @@
-# To-Do List App [![Language](https://img.shields.io/badge/swift-5.2-orange.svg?style=for-the-badge&logo=none)](https://www.swift.org/)
+# To-Do List App [![Language](https://img.shields.io/badge/swift-5.2-orange.svg?style=flat-square&logo=none)](https://www.swift.org/)
 
 This is a simple to-do list app for iOS. 
 
